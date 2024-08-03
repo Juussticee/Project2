@@ -1,0 +1,142 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="left">
+                <div class="nav">
+                    <div class="item1">
+                        <img src="dashboard.png" alt="dashboard" class="main-img">
+                        <h2 class="dash">Dashboard</h2>
+                    </div>
+                </div>
+                <div class="nav">
+                    <div class="item">
+                        <img src="home.png" alt="home-icon">
+                        <h3>Home</h3>
+                    </div class="item">
+                    <div class="item">
+                        <img src="profile.png" alt="profile-icon">
+                        <h3>Profile</h3>
+                    </div class="item">
+                    <div class="item">
+                        <img src="message.png" alt="message-icon">
+                        <h3>Messages</h3>
+                    </div class="item">
+                    <div class="item">
+                        <img src="history.png" alt="history-icon">
+                        <h3>History</h3>
+                    </div class="item">
+                    <div class="item">
+                        <img src="tasks.png" alt="tasks-icon">
+                        <h3>Tasks</h3>
+                    </div class="item">
+                    <div class="item">
+                        <img src="communities.png" alt="communities-icon">
+                        <h3>Communities</h3>
+                    </div>
+                </div>
+                <div class="nav">
+                    <div class="item">
+                        <img src="settings.png" alt="settings-icon">
+                        <h3>Settings</h3>
+                    </div>
+                    <div class="item">
+                        <img src="support.png" alt="support-icon">
+                        <h3>Support</h3>
+                    </div>
+                    <div class="item">
+                        <img src="privacy.png" alt="privacy-icon">
+                        <h3>Privacy</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="upperRight">
+                <div class="profile">
+                    <div class="section">
+                        <button class="search-icon"></button>
+                        <input type="search" name="search" id="search" placeholder="Search">
+                    </div>
+                    <div class="section sec2">
+                        <button class="bell-icon" onclick="toggleBell()" id="bell"></button>
+                        <img src="user1.png" alt="user" class="users">
+                        <h3 class="">Michael Jackson</h3>
+                    </div>
+                </div>
+                <div class="profile">
+                    <div class="section-p1">
+                        <img src="user1.png" alt="user" id="userpng" class="Muser">
+                        <div class="section-2">
+                            <p>Hi there, </p>
+                            <h2>Michael Jackson (<span id="handle">@michael</span>)</h2>
+                        </div>
+                    </div>
+                    <div class="section-p2 sec2">
+                        <button type="button" class="Pbtn" onclick="openModal()">New</button>
+                        <button type="button" class="Pbtn" onclick="openAnnouceModal()">Publish</button>
+                        <button type="button" class="Pbtn">Share</button>
+                    </div>
+                </div>
+            </div>
+            <div class="lowerRight">
+                <div class="left-section">
+                    <h3 style="color: black ;">Your Projects</h3>
+                    <div class="projects" id="projects"></div>
+                </div>
+                <div id="right-section">
+                    <div id="announcments-section">
+                        <h3>Announcments</h3>
+                        <div id="annoucments-posts"></div>
+                    </div>
+                    <div class="trending" id="trending-section">
+                        <h3>Trending</h3>
+                        <div id="trending-posts"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()"></span>
+                <h2>Add New Project</h2>
+                <form id="projectForm">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title" placeholder="Enter title(28chars)" maxlength="28" required>
+                    <label for="shortDesc">Short description</label>
+                    <textarea name="shortDesc" id="shortDesc" maxlength="80" placeholder="Enter Description(80 chars)" required></textarea>
+                    <label for="longDesc">Long Description:</label>
+                    <textarea id="longDesc" name="longDesc"></textarea> 
+                    <label for="attachment">Attach Files:</label>
+                    <input type="file" id="attachment" name="attachment" multiple>
+                    <div id="attachmentsContainer"></div>
+                    <label for="imageAttachment">Attach Images:</label>
+                    <input type="file" id="imageAttachment" name="imageAttachment" accept="image/*" multiple onchange="previewImages()">
+                    <div id="imagesContainer"></div>
+                    <button type="button" onclick="addProject()" id="submit-btn">Add Project</button>
+                </form>
+            </div>
+        </div>
+        <div id="announceModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeAnnounceModal()"></span>
+                <h2>Add Announcments</h2>
+                <form id="projectForm2">
+                    <label for="atitle">Title</label>
+                    <input type="text" name="atitle" id="atitle" placeholder="Enter title(20 chars)" maxlength="20" required>
+                    <label for="adesc">Announcement Text</label>
+                    <input type="textarea" name="adesc" id="adesc" placeholder="Enter the announcement (80 chars)" maxlength="80" required>
+                    <button type="button" onclick="addAnnouncement()" id="submit-btn2">Publish Annoucement</button>
+                </form>
+            </div>
+        </div>
+        <div id="Dmodals" class="">
+        </div>
+        <script src="script.js"></script>
+    </body>
+    </html>

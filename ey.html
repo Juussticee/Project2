@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Limit Example</title>
+</head>
+<body>
+    <input type="text" id="myInput" placeholder="Enter text (max 30 characters)">
+    <p id="charCount">0 / 30 characters</p>
+
+    <script>
+        const inputElement = document.getElementById('myInput');
+        const charCountElement = document.getElementById('charCount');
+
+        inputElement.addEventListener('input', function () {
+            const inputText = inputElement.value;
+            const charCount = inputText.length;
+
+            if (charCount > 30) {
+                inputElement.value = inputText.slice(0, 30);
+                inputText.style.color = 'red';
+            } else {
+                charCountElement.style.color = 'black';
+            }
+        });
+    </script>
+</body>
+</html>
